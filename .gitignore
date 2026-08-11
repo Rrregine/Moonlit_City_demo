@@ -6,6 +6,7 @@
 [Bb]uilds/
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
+[Rr]ecordings/
 
 # Memory captures
 [Mm]emoryCaptures/
@@ -21,6 +22,7 @@
 
 # Visual Studio generated files
 *.csproj
+*.unityproj
 *.sln
 *.suo
 *.user
@@ -28,6 +30,19 @@
 *.pidb
 *.booproj
 *.svd
+
+# Other generated files
+*.tmp
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.db
+
+# Unity generated meta files
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
 
 # OS generated files
 .DS_Store
@@ -40,13 +55,23 @@ sysinfo.txt
 *.apk
 *.aab
 *.unitypackage
+*.unitypackage.meta
 *.app
 *.exe
 *.appx
 *.appxbundle
 *.x86
 *.x86_64
-*.db
+
+# Crashlytics
+crashlytics-build.properties
+
+# Packed Addressables
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Temporary auto-generated Android Assets
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Game artwork
 Assets/Sprites/
