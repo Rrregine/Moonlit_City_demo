@@ -25,8 +25,6 @@ public class PlayerCombat : MonoBehaviour
 
     private bool autoAttackInterrupted = false;
 
-    [SerializeField]
-    private Vector2 defaultAttackDirection = Vector2.right;
 
     // ---------- Target ----------
     private EnemyBase hoveredTarget;
@@ -47,6 +45,8 @@ public class PlayerCombat : MonoBehaviour
     // ---------- Input ----------
     private PlayerControls controls;
 
+    private PlayerController playerController;
+
     // --------- Cursor ----------
     private CursorController cursorController;
 
@@ -58,6 +58,8 @@ public class PlayerCombat : MonoBehaviour
         controls = new PlayerControls();
 
         cursorController = FindFirstObjectByType<CursorController>();
+
+        playerController = GetComponent<PlayerController>();
     }
 
     private void Start()
@@ -206,7 +208,7 @@ public class PlayerCombat : MonoBehaviour
         }
         else
         {
-            FireBullet(defaultAttackDirection);
+            FireBullet(playerController.FacingDirection);
         }
 
         attackCooldown = 1f / attackSpeed;

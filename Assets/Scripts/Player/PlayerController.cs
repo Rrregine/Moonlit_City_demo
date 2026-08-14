@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
 
+    private Vector2 facingDirection = Vector2.left;
+
+    public Vector2 FacingDirection => facingDirection;
+
     private PlayerControls controls;
 
     private void Awake()
@@ -31,7 +35,16 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         movement = controls.Gameplay.Move.ReadValue<Vector2>();
-        //Debug.Log(movement);
+
+        if (movement.x != 0)
+        {
+            facingDirection = new Vector2(
+                Mathf.Sign(movement.x),
+                0
+            );
+            Debug.Log($"Facing Direction: {facingDirection}");
+        }
+
         movement = movement.normalized;
     }
 
