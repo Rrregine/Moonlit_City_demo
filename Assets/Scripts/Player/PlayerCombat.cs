@@ -153,21 +153,36 @@ public class PlayerCombat : MonoBehaviour
         if (!controls.Gameplay.Attack.WasPressedThisFrame())
             return;
 
+        // 1. Clicked on an enemy inside attack range
         if (hoveredTarget != null &&
             IsInInteractionRange(hoveredTarget))
         {
             SetTarget(hoveredTarget);
+            RequestAttack();
+            return;
         }
-        else
+
+        // 2. Already have a target
+        // Clicking empty space should NOT change the target.
+        if (currentAttackTarget != null &&
+            !currentAttackTarget.IsDead)
         {
-            EnemyBase nearestEnemy = FindNearestEnemy();
-
-            if (nearestEnemy != null)
-            {
-                SetTarget(nearestEnemy);
-            }
+            RequestAttack();
+            return;
         }
 
+        // 3. No current target
+        // Try to find the nearest enemy.
+        EnemyBase nearestEnemy = FindNearestEnemy();
+
+        if (nearestEnemy != null)
+        {
+            SetTarget(nearestEnemy);
+            RequestAttack();
+            return;
+        }
+
+        // 4. No enemy at all -> Empty attack
         RequestAttack();
     }
 
