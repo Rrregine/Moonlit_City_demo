@@ -124,7 +124,7 @@ Development started with a simple cyan square moving around the screen and gradu
 * [x] Target switching
 * [x] Target leash / disengagement
 * [x] Free Attack
-* [ ] Character-facing-based free attack direction
+* [x] Character-facing-based free attack direction
 * [ ] More projectile behaviors
 * [ ] Combat buffs
 * [ ] Enemy alert states
@@ -303,7 +303,7 @@ From the first moving square, to the first bullet, to the first enemy defeated �
 * [x] 攻击目标切换
 * [x] 拉脱 / 取消锁定
 * [x] 基础空 A
-* [ ] 根据角色朝向改变空 A 方向
+* [x] 根据角色朝向改变空 A 方向
 * [ ] 更多子弹行为
 * [ ] 战斗 Buff
 * [ ] 怪物警戒状态
