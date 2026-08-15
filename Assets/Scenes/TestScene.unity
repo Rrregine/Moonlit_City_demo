@@ -895,6 +895,7 @@ MonoBehaviour:
   attackSpeed: 3
   interactionRangeIndicator: {fileID: 1024687581}
   interactionRadius: 5
+  targetRangeDisplayTime: 0.5
 --- !u!1 &791179283
 GameObject:
   m_ObjectHideFlags: 0

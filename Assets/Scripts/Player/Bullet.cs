@@ -30,9 +30,14 @@ public class Bullet : MonoBehaviour
 
         startPosition = transform.position;
 
+        // Calculate the direction when the bullet is fired
+        direction = (
+            target.transform.position - transform.position
+        ).normalized;
+
         Debug.Log($"Bullet Damage : {damage}");
         Debug.Log($"Bullet Target : {enemy.name}");
-    }
+    } 
 
     // =========================
     // Free Bullet
@@ -52,29 +57,14 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        //Distance check
+        // Distance check
         if (Vector2.Distance(transform.position, startPosition) >= maxDistance)
         {
             Destroy(gameObject);
             return;
         }
 
-        // Targeted bullet
-        if (hasTarget)
-        {
-            if (target == null)
-                return;
-
-            transform.position = Vector2.MoveTowards(
-                transform.position,
-                target.transform.position,
-                speed * Time.deltaTime
-            );
-
-            return;
-        }
-
-        // Free bullet
+        // Move bullet
         transform.position +=
             (Vector3)direction * speed * Time.deltaTime;
     }
