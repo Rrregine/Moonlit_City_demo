@@ -156,9 +156,15 @@ A cyan square started moving across the screen. This was Ylir's very first form 
 
 ---
 
-### 2026-08-14
+### 2026-08-13
 
 **增加了空A可以根据左右朝向改变攻击方向的功能。**
 **Added the ability for free attack to change its attack direction based on the character's left or right orientation.**
 
+---
+
+### 2026-08-14
+
+**修正了左键点击空白处时会切换已手动锁定的目标的问题。**
+**Fixed an issue where left-clicking on a blank area would switch the manually locked target.**
 
