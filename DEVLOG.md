@@ -1,4 +1,4 @@
-# 🌙《月下幻行》Demo — Development Log
+# 《月下幻行》Demo — Development Log
 
 > **《月下幻行》**（Moonlit Demo）是一款正在开发中的 2D Roguelike 游戏 Demo。
 > **Moonlit Demo** is a 2D Roguelike game prototype currently in development.
