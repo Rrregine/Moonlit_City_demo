@@ -1,4 +1,4 @@
-# 🌙 Moonlit Demo — 《月下幻行》
+# 🌙 Moonlit City Demo — 《月下幻行》Demo版
 
 > **Moonlit Demo** is a 2D Roguelike game prototype currently in development.
 >
