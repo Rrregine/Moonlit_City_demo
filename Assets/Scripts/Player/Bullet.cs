@@ -35,8 +35,8 @@ public class Bullet : MonoBehaviour
             target.transform.position - transform.position
         ).normalized;
 
-        Debug.Log($"Bullet Damage : {damage}");
-        Debug.Log($"Bullet Target : {enemy.name}");
+        //Debug.Log($"Bullet Damage : {damage}");
+        //Debug.Log($"Bullet Target : {enemy.name}");
     } 
 
     // =========================
@@ -52,7 +52,7 @@ public class Bullet : MonoBehaviour
 
         startPosition = transform.position;
 
-        Debug.Log($"Free Bullet Damage : {damage}");
+        //Debug.Log($"Free Bullet Damage : {damage}");
     }
 
     private void Update()

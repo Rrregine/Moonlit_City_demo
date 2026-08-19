@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
                 Mathf.Sign(movement.x),
                 0
             );
-            Debug.Log($"Facing Direction: {facingDirection}");
+            //Debug.Log($"Facing Direction: {facingDirection}");
         }
 
         movement = movement.normalized;

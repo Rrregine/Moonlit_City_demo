@@ -1,6 +1,6 @@
-# 🌙 Moonlit City Demo — 《月下幻行》Demo版
+# Moonlit City Demo — 《月下幻行》Demo
 
-> **Moonlit Demo** is a 2D Roguelike game prototype currently in development.
+> **Moonlit City Demo** is a 2D Roguelike game prototype currently in development.
 >
 > **中文版位于下方 | Chinese version below.**
 
@@ -10,7 +10,7 @@
 
 ## 🎮 About the Game
 
-*Moonlit Demo* is a 2D Roguelike game prototype currently in development.
+*Moonlit City Demo* is a 2D Roguelike game prototype currently in development.
 
 The story takes place in a dream world known as the **“Blind Zone”**, a place where dreams take physical form and forgotten things remain.
 
@@ -127,7 +127,8 @@ Development started with a simple cyan square moving around the screen and gradu
 * [x] Character-facing-based free attack direction
 * [x] More projectile behaviors
 * [ ] Combat buffs
-* [ ] Enemy alert states
+* [x] Enemy alert states
+* [ ] Enemy AI
 * [ ] More enemy types
 * [ ] Boss system
 
@@ -306,7 +307,8 @@ From the first moving square, to the first bullet, to the first enemy defeated �
 * [x] 根据角色朝向改变空 A 方向
 * [x] 更多子弹行为
 * [ ] 战斗 Buff
-* [ ] 怪物警戒状态
+* [x] 怪物警戒状态
+* [ ] 怪物AI(追踪玩家)
 * [ ] 更多怪物类型
 * [ ] Boss 系统
 

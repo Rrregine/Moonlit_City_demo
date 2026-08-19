@@ -191,7 +191,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (currentAttackTarget == target)
         {
-            Debug.Log($"Already Locked : {target.name}");
+            //Debug.Log($"Already Locked : {target.name}");
             return;
         }
 
@@ -207,7 +207,7 @@ public class PlayerCombat : MonoBehaviour
         ShowInteractionRange();
         targetRangeDisplayTimer = targetRangeDisplayTime;
 
-        Debug.Log($"Lock Target : {target.name}");
+        //Debug.Log($"Lock Target : {target.name}");
     }
 
     private void RequestAttack()
@@ -311,7 +311,7 @@ public class PlayerCombat : MonoBehaviour
         autoAttackInterrupted = false;
         noTargetWarningShown = false;
 
-        Debug.Log($"Auto Attack : {autoAttack}");
+        //Debug.Log($"Auto Attack : {autoAttack}");
     }
 
     private void AutoFire()
@@ -385,7 +385,7 @@ public class PlayerCombat : MonoBehaviour
 
         if (!IsInInteractionRange(currentAttackTarget))
         {
-            Debug.Log($"Target Out Of Range : {currentAttackTarget.name}");
+            //Debug.Log($"Target Out Of Range : {currentAttackTarget.name}");
 
             currentAttackTarget.Unlock();
             currentAttackTarget = null;
@@ -395,7 +395,7 @@ public class PlayerCombat : MonoBehaviour
                 autoAttack = false;
                 autoAttackInterrupted = true;
 
-                Debug.Log("Auto Attack Interrupted");
+                //Debug.Log("Auto Attack Interrupted");
             }
         }
     }

@@ -6,6 +6,10 @@ public class EnemyBase : MonoBehaviour
     [SerializeField]
     private int maxHealth = 20;
 
+    // ---------- Detection ----------
+    [SerializeField]
+    private float detectionRange = 5f;
+
     private int currentHealth;
 
     public bool IsDead { get; private set; }
@@ -16,6 +20,19 @@ public class EnemyBase : MonoBehaviour
     private CursorController cursorController;
 
     protected SpriteRenderer lockRenderer;
+
+    //Player Detection
+    private Transform player;
+
+    private bool playerDetected = false;
+
+    //Alert
+    [SerializeField]
+    private float alertDuration = 1f;
+
+    private SpriteRenderer alertRenderer;
+
+    private float alertTimer = 0f;
 
 
     protected virtual void Awake()
@@ -30,14 +47,34 @@ public class EnemyBase : MonoBehaviour
 
         cursorController.SetNormalCursor();
 
-        //LockIn
+        //LockIn 
         lockRenderer = transform.Find("LockIcon")
             .GetComponent<SpriteRenderer>();
 
         lockRenderer.enabled = false;
 
+        //Alert
+        alertRenderer = transform.Find("AlertIcon")
+            .GetComponent<SpriteRenderer>();
+
+        alertRenderer.enabled = false;
+
         //HP
         currentHealth = maxHealth;
+
+        //Detection
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+
+        if (playerObject != null)
+        {
+            player = playerObject.transform;
+        }
+    }
+
+    private void Update()
+    {
+        DetectPlayer();
+        UpdateAlert();
     }
 
     //Hover On & Off
@@ -86,5 +123,68 @@ public class EnemyBase : MonoBehaviour
         Debug.Log($"{name} Died!");
 
         Destroy(gameObject);
+    }
+
+    //Player detection
+    private void DetectPlayer()
+    {
+        if (player == null)
+            return;
+
+        float distance = Vector2.Distance(
+            transform.position,
+            player.position
+        );
+
+        if (distance <= detectionRange)
+        {
+            if (!playerDetected)
+            {
+                playerDetected = true;
+
+                ShowAlert();
+
+                Debug.Log($"{name} : Player Detected!");
+            }
+        }
+        else
+        {
+            if (playerDetected)
+            {
+                playerDetected = false;
+
+                Debug.Log($"{name} : Player Lost!");
+            }
+        }
+    }
+
+    //Show Alert
+    private void ShowAlert()
+    {
+        alertRenderer.enabled = true;
+        alertTimer = alertDuration;
+    }
+
+    private void UpdateAlert()
+    {
+        if (!alertRenderer.enabled)
+            return;
+
+        alertTimer -= Time.deltaTime;
+
+        if (alertTimer <= 0f)
+        {
+            alertRenderer.enabled = false;
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.white;
+
+        Gizmos.DrawWireSphere(
+            transform.position,
+            detectionRange
+        );
     }
 }

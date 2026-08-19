@@ -178,3 +178,13 @@ A cyan square started moving across the screen. This was Ylir's very first form 
 **基础的战斗系统已经完成！正好耗时一个月。接下来应该是跟怪物相关的新篇章了。**
 **The basic combat system is complete! It took exactly one month. Next up should be a new chapter involving enemies.**
 
+---
+
+### 2026-08-19
+
+**完成了怪物的警戒范围和警戒图标。**
+**Completed the enemy's alert range and alert icon.**
+
+**现在怪物可以检测到玩家了！**
+**Enemies can now detect player!**
+
