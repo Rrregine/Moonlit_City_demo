@@ -1,6 +1,6 @@
 # 《月下幻行》Demo — Development Log
 
-> **《月下幻行》**（Moonlit Demo）是一款正在开发中的 2D Roguelike 游戏 Demo。
+> **《月下幻行》Demo**（Moonlit City Demo）是一款正在开发中的 2D Roguelike 游戏 Demo。
 > **Moonlit Demo** is a 2D Roguelike game prototype currently in development.
 
 > 主角在由梦境具象化而成的「盲区」战斗，探索被他人遗忘的记忆，最终被凌白“救走”，离开盲区。
@@ -13,7 +13,7 @@
 ### 2026-07-15
 
 **《月下幻行》demo版企划诞生了！**
-**The concept for the Moonlit Demo was born!**
+**The concept for the Moonlit City Demo was born!**
 
 ---
 
@@ -22,8 +22,8 @@
 **WASD移动完成。**
 **WASD movement completed.**
 
-一个青色方块在屏幕上动了起来。这是伊尔最初的生命形态。
-A cyan square started moving across the screen. This was Ylir's very first form of life.
+**一个青色方块在屏幕上动了起来。这是伊尔最初的生命形态。**
+**A cyan square started moving across the screen. This was Ylir's very first form of life.**
 
 ---
 
@@ -187,4 +187,14 @@ A cyan square started moving across the screen. This was Ylir's very first form 
 
 **现在怪物可以检测到玩家了！**
 **Enemies can now detect player!**
+
+---
+
+### 2026-08-19
+
+**完成了怪物对玩家的追击和拉脱。**
+**Completed the features of enemy chasing the player and stopping to move when the player leaves its attack range.**
+
+**真正的战斗开始了！测试也变得逐渐有难度起来……**
+**It looks like a real battle now! Meanwhile testing becomes more and more complicated...**
 

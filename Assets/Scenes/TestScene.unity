@@ -1138,6 +1138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 947289811}
   - component: {fileID: 947289809}
+  - component: {fileID: 947289814}
   - component: {fileID: 947289812}
   - component: {fileID: 947289813}
   m_Layer: 6
@@ -1238,7 +1239,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
   maxHealth: 10000
   detectionRange: 5
+  attackRange: 1
+  moveSpeed: 1.5
   alertDuration: 1.5
+--- !u!50 &947289814
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947289808}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &1024687581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,6 +1552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1147853413}
   - component: {fileID: 1147853412}
+  - component: {fileID: 1147853414}
   - component: {fileID: 1147853411}
   - component: {fileID: 1147853410}
   m_Layer: 6
@@ -1545,6 +1576,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
   maxHealth: 20
   detectionRange: 5
+  attackRange: 1.5
+  moveSpeed: 1
   alertDuration: 1.5
 --- !u!114 &1147853411
 MonoBehaviour:
@@ -1623,6 +1656,33 @@ Transform:
   - {fileID: 2008254190}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1147853414
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147853409}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &1197488418
 GameObject:
   m_ObjectHideFlags: 0
@@ -2361,6 +2421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2138539522}
   - component: {fileID: 2138539521}
+  - component: {fileID: 2138539523}
   - component: {fileID: 2138539520}
   - component: {fileID: 2138539519}
   m_Layer: 6
@@ -2384,6 +2445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
   maxHealth: 20
   detectionRange: 5
+  attackRange: 1.5
+  moveSpeed: 1
   alertDuration: 1.5
 --- !u!114 &2138539520
 MonoBehaviour:
@@ -2462,6 +2525,33 @@ Transform:
   - {fileID: 506911559}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &2138539523
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138539518}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

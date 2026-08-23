@@ -2,15 +2,22 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    // ---------- Stats ----------
+    //Stats
     [SerializeField]
     private int maxHealth = 20;
 
-    // ---------- Detection ----------
+    private int currentHealth;
+
+    //Detection
     [SerializeField]
     private float detectionRange = 5f;
 
-    private int currentHealth;
+    //Attack
+    [SerializeField]
+    protected float attackRange = 1.5f;
+
+    [SerializeField]
+    protected float moveSpeed = 2f;
 
     public bool IsDead { get; private set; }
 
@@ -25,6 +32,8 @@ public class EnemyBase : MonoBehaviour
     private Transform player;
 
     private bool playerDetected = false;
+
+    private Rigidbody2D rb;
 
     //Alert
     [SerializeField]
@@ -69,12 +78,15 @@ public class EnemyBase : MonoBehaviour
         {
             player = playerObject.transform;
         }
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
         DetectPlayer();
         UpdateAlert();
+        ChasePlayer();
     }
 
     //Hover On & Off
@@ -153,6 +165,8 @@ public class EnemyBase : MonoBehaviour
             {
                 playerDetected = false;
 
+                rb.linearVelocity = Vector2.zero;
+
                 Debug.Log($"{name} : Player Lost!");
             }
         }
@@ -178,6 +192,32 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
+    private void ChasePlayer()
+    {
+        if (!playerDetected)
+            return;
+
+        if (player == null)
+            return;
+
+        float distance = Vector2.Distance(
+            transform.position,
+            player.position
+        );
+
+        if (distance <= attackRange)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
+        Vector2 direction = (
+            player.position - transform.position
+        ).normalized;
+
+        rb.linearVelocity = direction * moveSpeed;
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.white;
@@ -185,6 +225,14 @@ public class EnemyBase : MonoBehaviour
         Gizmos.DrawWireSphere(
             transform.position,
             detectionRange
+        );
+
+        // Attack Range
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireSphere(
+            transform.position,
+            attackRange
         );
     }
 }
