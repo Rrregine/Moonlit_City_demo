@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
   maxHealth: 10000
   detectionRange: 5
-  attackRange: 1
+  attackRange: 3
   moveSpeed: 1.5
   alertDuration: 1.5
 --- !u!50 &947289814
@@ -1576,7 +1576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
   maxHealth: 20
   detectionRange: 5
-  attackRange: 1.5
+  attackRange: 2.5
   moveSpeed: 1
   alertDuration: 1.5
 --- !u!114 &1147853411
@@ -2445,7 +2445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
   maxHealth: 20
   detectionRange: 5
-  attackRange: 1.5
+  attackRange: 2.5
   moveSpeed: 1
   alertDuration: 1.5
 --- !u!114 &2138539520

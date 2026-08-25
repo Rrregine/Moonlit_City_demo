@@ -194,19 +194,25 @@ public class EnemyBase : MonoBehaviour
 
     private void ChasePlayer()
     {
-        if (!playerDetected)
+        if (!playerDetected || player == null)
+        {
+            rb.linearVelocity = Vector2.zero;
             return;
-
-        if (player == null)
-            return;
+        }
 
         float distance = Vector2.Distance(
             transform.position,
             player.position
         );
 
+        //Debug.Log(
+        //    $"{name} Distance: {distance:F2} | Attack Range: {attackRange:F2}"
+        //);
+
         if (distance <= attackRange)
         {
+            //Debug.Log($"{name} ENTERED ATTACK RANGE - STOP");
+
             rb.linearVelocity = Vector2.zero;
             return;
         }

@@ -198,3 +198,9 @@
 **真正的战斗开始了！测试也变得逐渐有难度起来……**
 **It looks like a real battle now! Meanwhile testing becomes more and more complicated...**
 
+---
+
+### 2026-08-24
+
+**试图解决怪物追击过程中产生的bug，最后发现是攻击范围设计小了。**
+**Trying to fix a bug that occurred during the enemy chase, and eventually found out that the attack range was designed to be too small.**
