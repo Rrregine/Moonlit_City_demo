@@ -2,11 +2,17 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    //Stats
     [SerializeField]
     private int maxHealth = 20;
 
     private int currentHealth;
+
+    [SerializeField]
+    protected float moveSpeed = 2f;
+
+    // ---------- AI ----------
+    [SerializeField]
+    private EnemyState currentState = EnemyState.Patrol;
 
     //Detection
     [SerializeField]
@@ -16,8 +22,12 @@ public class EnemyBase : MonoBehaviour
     [SerializeField]
     protected float attackRange = 1.5f;
 
+    //Patrol
     [SerializeField]
-    protected float moveSpeed = 2f;
+    private Transform[] patrolPoints;
+
+    private int currentPatrolIndex = 0;
+    private int patrolDirection = 1;
 
     public bool IsDead { get; private set; }
 
@@ -86,7 +96,29 @@ public class EnemyBase : MonoBehaviour
     {
         DetectPlayer();
         UpdateAlert();
-        ChasePlayer();
+
+        UpdateState();
+    }
+
+    private void UpdateState()
+    {
+        switch (currentState)
+        {
+            case EnemyState.Patrol:
+                Patrol();
+                break;
+
+            case EnemyState.Chase:
+                ChasePlayer();
+                break;
+
+            case EnemyState.Attack:
+                Attack();
+                break;
+
+            case EnemyState.Dead:
+                break;
+        }
     }
 
     //Hover On & Off
@@ -132,6 +164,8 @@ public class EnemyBase : MonoBehaviour
     {
         IsDead = true;
 
+        currentState = EnemyState.Dead;
+
         Debug.Log($"{name} Died!");
 
         Destroy(gameObject);
@@ -156,7 +190,9 @@ public class EnemyBase : MonoBehaviour
 
                 ShowAlert();
 
-                Debug.Log($"{name} : Player Detected!");
+                currentState = EnemyState.Chase;
+
+                //Debug.Log($"{name} : Player Detected!");
             }
         }
         else
@@ -167,7 +203,9 @@ public class EnemyBase : MonoBehaviour
 
                 rb.linearVelocity = Vector2.zero;
 
-                Debug.Log($"{name} : Player Lost!");
+                currentState = EnemyState.Patrol;
+
+                //Debug.Log($"{name} : Player Lost!");
             }
         }
     }
@@ -222,6 +260,46 @@ public class EnemyBase : MonoBehaviour
         ).normalized;
 
         rb.linearVelocity = direction * moveSpeed;
+    }
+
+    private void Patrol()
+    {
+        if (patrolPoints == null || patrolPoints.Length == 0)
+            return;
+
+        Transform targetPoint = patrolPoints[currentPatrolIndex];
+
+        Vector2 direction = (
+            targetPoint.position - transform.position
+        ).normalized;
+
+        rb.linearVelocity = direction * moveSpeed;
+
+        float distance = Vector2.Distance(
+            transform.position,
+            targetPoint.position
+        );
+
+        if (distance < 0.1f)
+        {
+            currentPatrolIndex += patrolDirection;
+
+            if (currentPatrolIndex >= patrolPoints.Length)
+            {
+                currentPatrolIndex = patrolPoints.Length - 2;
+                patrolDirection = -1;
+            }
+            else if (currentPatrolIndex < 0)
+            {
+                currentPatrolIndex = 1;
+                patrolDirection = 1;
+            }
+        }
+    }
+
+    private void Attack()
+    {
+        // Attack behavior will be implemented later.
     }
 
     private void OnDrawGizmosSelected()

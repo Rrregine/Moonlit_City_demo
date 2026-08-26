@@ -190,7 +190,7 @@
 
 ---
 
-### 2026-08-19
+### 2026-08-23
 
 **完成了怪物对玩家的追击和拉脱。**
 **Completed the features of enemy chasing the player and stopping to move when the player leaves its attack range.**
@@ -204,3 +204,13 @@
 
 **试图解决怪物追击过程中产生的bug，最后发现是攻击范围设计小了。**
 **Trying to fix a bug that occurred during the enemy chase, and eventually found out that the attack range was designed to be too small.**
+
+---
+
+### 2026-08-25
+
+**加入了怪物的巡逻，并且设定了拉脱的逻辑。**
+**Added the enemy's patrol and also the logic for pull-out.**
+
+**添加了怪物状态的enum。**
+**Added an enum for enemy state. Reorganized the code.**
