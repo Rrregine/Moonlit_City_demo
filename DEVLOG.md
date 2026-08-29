@@ -214,3 +214,15 @@
 
 **添加了怪物状态的enum。**
 **Added an enum for enemy state. Reorganized the code.**
+
+---
+
+### 2026-08-28
+
+**加入了可以用鼠标拖动和缩放镜头的功能。**
+**Added mouse-based camera controls, including camera panning and zooming.**
+
+**在input system中加入了的action，对旧的代码也进行了重整，修复了期间出现的bug。**
+**Added the necessary actions to the Input System, reorganized and cleaned up existing code, and fixed several bugs encountered during the process.**
+
+

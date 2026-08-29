@@ -23,9 +23,6 @@ public class PlayerCombat : MonoBehaviour
 
     private bool noTargetWarningShown = false;
 
-    private bool autoAttackInterrupted = false;
-
-
     // ---------- Target ----------
     private EnemyBase hoveredTarget;
     private EnemyBase currentAttackTarget;
@@ -76,11 +73,13 @@ public class PlayerCombat : MonoBehaviour
     private void OnEnable()
     {
         controls.Gameplay.Enable();
+        controls.Camera.Enable();
     }
 
     private void OnDisable()
     {
         controls.Gameplay.Disable();
+        controls.Camera.Disable();
     }
 
     private void Update()
@@ -150,6 +149,11 @@ public class PlayerCombat : MonoBehaviour
     /// Handle left mouse attack input.
     private void UpdateAttackInput()
     {
+        if (controls.Camera.Modifier.IsPressed())
+        {
+            return;
+        }
+
         if (!controls.Gameplay.Attack.WasPressedThisFrame())
             return;
 
@@ -268,11 +272,13 @@ public class PlayerCombat : MonoBehaviour
     // Convert mouse position from screen space to world space.
     private Vector3 GetMouseWorldPosition()
     {
-        Vector3 mousePosition = Mouse.current.position.ReadValue();
+        Vector2 mousePosition =
+            controls.Camera.MousePosition.ReadValue<Vector2>();
 
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        Vector3 worldPosition =
+            Camera.main.ScreenToWorldPoint(mousePosition);
 
-        worldPosition.z = 0;
+        worldPosition.z = 0f;
 
         return worldPosition;
     }
@@ -303,12 +309,16 @@ public class PlayerCombat : MonoBehaviour
     // Auto Attack 
     private void UpdateAutoAttack()
     {
+        if (controls.Camera.Modifier.IsPressed())
+        {
+            return;
+        }
+
         if (!controls.Gameplay.AutoAttack.WasPressedThisFrame())
             return;
 
         autoAttack = !autoAttack;
 
-        autoAttackInterrupted = false;
         noTargetWarningShown = false;
 
         //Debug.Log($"Auto Attack : {autoAttack}");
@@ -316,8 +326,14 @@ public class PlayerCombat : MonoBehaviour
 
     private void AutoFire()
     {
+
         if (!autoAttack)
             return;
+
+        if (controls.Camera.Modifier.IsPressed())
+        {
+            return;
+        }
 
         if (currentAttackTarget == null || currentAttackTarget.IsDead)
         {
@@ -393,7 +409,6 @@ public class PlayerCombat : MonoBehaviour
             if (autoAttack)
             {
                 autoAttack = false;
-                autoAttackInterrupted = true;
 
                 //Debug.Log("Auto Attack Interrupted");
             }

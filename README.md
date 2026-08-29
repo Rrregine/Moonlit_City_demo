@@ -52,18 +52,6 @@ The core combat system of the demo is currently being developed step by step.
 * Automatic targeting with left click
 * R-key auto attack
 
-### 🖱️ Cursor System
-
-The cursor changes depending on the player's interaction with enemies.
-
-**⚔️ Sword**
-
-The enemy is within attack range and can be attacked.
-
-**👁️ Eye**
-
-The enemy is outside attack range and cannot currently be attacked.
-
 ---
 
 ## 🛠️ Technology
@@ -150,6 +138,10 @@ Development started with a simple cyan square moving around the screen and gradu
 * [ ] Ling Bai
 * [ ] Full ending system
 
+### UI
+
+* [x] Camera Zoom and Pan
+
 ---
 
 ## 🎨 Art Assets
@@ -231,18 +223,6 @@ From the first moving square, to the first bullet, to the first enemy defeated �
 * 基础空 A
 * 左键自动锁定最近目标
 * R 键自动攻击
-
-### 🖱️ 鼠标系统
-
-鼠标会根据玩家与怪物之间的距离以及当前状态进行变化。
-
-**⚔️ 剑**
-
-怪物处于攻击范围以内，可以进行攻击。
-
-**👁️ 眼睛**
-
-怪物处于攻击范围以外，目前无法进行攻击。
 
 ---
 
@@ -329,6 +309,10 @@ From the first moving square, to the first bullet, to the first enemy defeated �
 * [ ] 剧情事件
 * [ ] 凌白
 * [ ] 完整结局系统
+
+### UI
+
+* [x] 镜头缩放和平移
 
 ---
 

@@ -16,8 +16,6 @@ public class Bullet : MonoBehaviour
 
     private int damage;
 
-    private bool hasTarget = false;
-
     // =========================
     // Target Bullet
     // =========================
@@ -25,8 +23,6 @@ public class Bullet : MonoBehaviour
     {
         target = enemy;
         damage = bulletDamage;
-
-        hasTarget = true;
 
         startPosition = transform.position;
 
@@ -47,8 +43,6 @@ public class Bullet : MonoBehaviour
         target = null;
         direction = bulletDirection.normalized;
         damage = bulletDamage;
-
-        hasTarget = false;
 
         startPosition = transform.position;
 

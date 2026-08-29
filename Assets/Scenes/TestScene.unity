@@ -557,6 +557,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -696,6 +697,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   smoothTime: 0.2
   target: {fileID: 629696501}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6b7028ca879f146babd408daab9a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraController
+  zoomSpeed: 2.5
+  minZoom: 3
+  maxZoom: 10
+  panSpeed: 1
 --- !u!1 &572024108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1332,6 +1349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
   maxHealth: 10000
   moveSpeed: 1.5
+  currentState: 0
   detectionRange: 5
   attackRange: 3
   patrolPoints:
@@ -1673,6 +1691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
   maxHealth: 20
   moveSpeed: 1
+  currentState: 0
   detectionRange: 5
   attackRange: 2.5
   patrolPoints: []
@@ -2574,6 +2593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
   maxHealth: 20
   moveSpeed: 1
+  currentState: 0
   detectionRange: 5
   attackRange: 2.5
   patrolPoints: []
