@@ -116,7 +116,7 @@ Development started with a simple cyan square moving around the screen and gradu
 * [x] More projectile behaviors
 * [ ] Combat buffs
 * [x] Enemy alert states
-* [ ] Enemy AI
+* [x] Enemy AI
 * [ ] More enemy types
 * [ ] Boss system
 
@@ -288,7 +288,7 @@ From the first moving square, to the first bullet, to the first enemy defeated �
 * [x] 更多子弹行为
 * [ ] 战斗 Buff
 * [x] 怪物警戒状态
-* [ ] 怪物AI(追踪玩家)
+* [x] 怪物AI(追踪玩家)
 * [ ] 更多怪物类型
 * [ ] Boss 系统
 

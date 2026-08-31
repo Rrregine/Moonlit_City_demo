@@ -225,4 +225,14 @@
 **在input system中加入了的action，对旧的代码也进行了重整，修复了期间出现的bug。**
 **Added the necessary actions to the Input System, reorganized and cleaned up existing code, and fixed several bugs encountered during the process.**
 
+---
+
+### 2026-08-30
+
+**重大进展！完成了怪物的基础AI！修复了期间产生的bug**
+**Great progress! Completed the basic Enemy AI! Fixed several bugs encountered during the process**
+
+**第一个怪物的名字叫“补丁”，是一个近战怪物，被它碰到会造成伤害。**
+**The first enemy is called "Patch," and it's a melee monster that will cause damage if player touches it.**
+
 

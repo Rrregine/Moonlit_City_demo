@@ -12,7 +12,7 @@ public class EnemyBase : MonoBehaviour
 
     // ---------- AI ----------
     [SerializeField]
-    private EnemyState currentState = EnemyState.Patrol;
+    protected EnemyState currentState = EnemyState.Patrol;
 
     //Detection
     [SerializeField]
@@ -52,7 +52,6 @@ public class EnemyBase : MonoBehaviour
     private SpriteRenderer alertRenderer;
 
     private float alertTimer = 0f;
-
 
     protected virtual void Awake()
     {
@@ -243,15 +242,13 @@ public class EnemyBase : MonoBehaviour
             player.position
         );
 
-        //Debug.Log(
-        //    $"{name} Distance: {distance:F2} | Attack Range: {attackRange:F2}"
-        //);
-
         if (distance <= attackRange)
         {
-            //Debug.Log($"{name} ENTERED ATTACK RANGE - STOP");
-
             rb.linearVelocity = Vector2.zero;
+            currentState = EnemyState.Attack;
+
+            OnEnterAttack();
+
             return;
         }
 
@@ -297,9 +294,30 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
-    private void Attack()
+    protected virtual void Attack()
     {
-        // Attack behavior will be implemented later.
+        if (!playerDetected || player == null)
+        {
+            currentState = EnemyState.Patrol;
+            return;
+        }
+
+        float distance = Vector2.Distance(
+            transform.position,
+            player.position
+        );
+
+        if (distance > attackRange)
+        {
+            currentState = EnemyState.Chase;
+            return;
+        }
+
+        rb.linearVelocity = Vector2.zero;
+    }
+
+    protected virtual void OnEnterAttack()
+    {
     }
 
     private void OnDrawGizmosSelected()
